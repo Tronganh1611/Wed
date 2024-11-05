@@ -1,0 +1,8 @@
+div{
+     display: flex; /*can hang ngang giua cac phan tuu trong lop cha */
+    justify-content: center;
+     gap: 10px; /*khoang cach giua cac phan tu la 10px */
+}
+p{
+    color: brown;
+}

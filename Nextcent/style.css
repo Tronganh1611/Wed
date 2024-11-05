@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: "Inter", sans-serif;
+}
+.btn{
+    color: white;
+    background: var(--primary-color);
+    border-radius: 2.78px;
+    padding: 10px 22px;
+    border: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+/* khai báo biến html */
+:root{
+    --primary-color:#4caf4f;
+    --second-color:#4d4d4d;
+    --third-color:#717171;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 100.23px;
+}
+.header-right ul{
+    display: flex;
+    list-style: none;
+    align-items: center;  /*can giua hang      */
+    gap: 18px;
+}
+.header-right .header-anchor{
+    text-decoration: none;
+    color: var(--second-color);
+}
+.banner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #F5f7fa;
+    padding: 66.82px 100.23px;
+    gap: 72.39px;
+    margin-top: 4px;
+}
+.banner .banner-left h1{
+    font-size: 44.55px;
+    margin-bottom: 11.14px;
+    color: var(--second-color);
+}
+.banner .banner-left p{
+    font-size: 11.14px;
+    margin-bottom: 22.27px;
+    color: var(--third-color);
+}
+.banner .banner-left h1 span{
+    color: var(--primary-color);
+}
+.client{
+    margin: 27.84px 0px;
+    padding: 0px 100.23px;
+}
+.client-top{
+    text-align: center;
+    margin-bottom: 11.14px;
+}
+.client-top h1{
+    color: var(--second-color);
+    font-size: 25.06px ;
+    margin-top: 5.57px;
+}
+.client-top p{
+    color: var(--third-color);
+    font-size: 11.14px ;
+}
+.client-bottom ul{
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    padding: 17.4px 0px;
+}

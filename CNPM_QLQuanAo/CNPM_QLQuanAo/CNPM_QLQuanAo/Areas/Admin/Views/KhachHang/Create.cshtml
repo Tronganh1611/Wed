@@ -1,0 +1,186 @@
+﻿@model CNPM_QLQuanAo.Models.KHACH_HANG
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    <title>Index</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .table th, .table td {
+            vertical-align: middle;
+        }
+    </style>
+}
+
+@section sidebar{
+    <ul id="sidebarnav">
+        <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu">SẢN PHẨM</span>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="@Url.Action("Index", "AdminSanPham")" aria-expanded="false">
+                <span>
+                    <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Danh sách sản phẩm</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="@Url.Action("Index", "AdminLoaiSPs")" aria-expanded="false">
+                <span>
+                    <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Danh sách loại sản phẩm</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="@Url.Action("Index", "AdminChiTietPhieuNhaps")" aria-expanded="false">
+                <span>
+                    <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Lịch sử nhập hàng</span>
+            </a>
+        </li>
+        <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu">kHÁCH HÀNG</span>
+        </li>
+        <li class="sidebar-item active">
+            <a class="sidebar-link active" href="@Url.Action("index", "KhachHang")" aria-expanded="false">
+                <span>
+                    <i class="ti ti-article"></i>
+                </span>
+                <span class="hide-menu">Danh sách khách hàng</span>
+            </a>
+        </li>
+        <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu">ĐƠN HÀNG</span>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="@Url.Action("Index", "ChiTietHoaDons")" aria-expanded="false">
+                <span>
+                    <i class="ti ti-article"></i>
+                </span>
+                <span class="hide-menu">Danh sách đơn hàng</span>
+            </a>
+        </li>
+        <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu">THỐNG KÊ</span>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="@Url.Action("ThongKeBanHang", "ThongKe")" aria-expanded="false">
+                <span>
+                    <i class="ti ti-cards"></i>
+                </span>
+                <span class="hide-menu">Thống kê</span>
+            </a>
+        </li>
+        <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu">NHÂN VIÊN</span>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="@Url.Action("Index", "AdminNHAN_VIEN")" aria-expanded="false">
+                <span>
+                    <i class="ti ti-file-description"></i>
+                </span>
+                <span class="hide-menu">Danh sách nhân viên</span>
+            </a>
+        </li>
+    </ul>
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2>Thêm Khách Hàng</h2>
+        <hr />
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.MaKH, htmlAttributes: new { @class = "col-sm-2 col-form-label" })
+                <div class="col-sm-10">
+                    @Html.EditorFor(model => model.MaKH, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MaKH, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.TenKH, htmlAttributes: new { @class = "col-sm-2 col-form-label" })
+                <div class="col-sm-10">
+                    @Html.EditorFor(model => model.TenKH, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TenKH, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.SDT, htmlAttributes: new { @class = "col-sm-2 col-form-label" })
+                <div class="col-sm-10">
+                    @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.DiaChi, htmlAttributes: new { @class = "col-sm-2 col-form-label" })
+                <div class="col-sm-10">
+                    @Html.EditorFor(model => model.DiaChi, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "col-sm-2 col-form-label" })
+                <div class="col-sm-10">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.MatKhau, htmlAttributes: new { @class = "col-sm-2 col-form-label" })
+                <div class="col-sm-10">
+                    @Html.EditorFor(model => model.MatKhau, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.GioiTinh, htmlAttributes: new { @class = "col-sm-2 col-form-label" })
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            @Html.RadioButtonFor(model => model.GioiTinh, true, new { @class = "form-check-input" }) Nam
+                        </label>
+                        <span class="ml-4 mr-4"> </span>
+                        <label class="form-check-label">
+                            @Html.RadioButtonFor(model => model.GioiTinh, false, new { @class = "form-check-input" }) Nữ
+                        </label>
+                        @Html.ValidationMessageFor(model => model.GioiTinh, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="form-group row">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <input type="submit" value="Thêm" class="btn btn-primary" />
+                </div>
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink("Quay lại", "Index", null, new { @class = "btn btn-secondary" })
+        </div>
+    </div>
+</body>
+</html>

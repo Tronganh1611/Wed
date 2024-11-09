@@ -1,0 +1,81 @@
+﻿@model CNPM_QLQuanAo.Models.KHACH_HANG
+
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register</title>
+    <link rel="shortcut icon" type="image/png" href="~/Images/ImagesAmin/logos/favicon.png" />
+    <link rel="stylesheet" href="~/Content/StyleAdmin/css/styles.min.css" />
+</head>
+
+<body>
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+         data-sidebar-position="fixed" data-header-position="fixed">
+        <div class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
+            <div class="d-flex align-items-center justify-content-center w-100">
+                <div class="row justify-content-center w-100">
+                    <div class="col-md-8 col-lg-6 col-xxl-8">
+                        <div class="card mb-0">
+                            <div class="card-body">
+                                <h2 class="text-center">Đăng ký</h2>
+                                @using (Html.BeginForm("Register", "KhachHang", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <div class="mb-3">
+                                        <label for="TenKH" class="form-label">Họ và tên</label>
+                                        @Html.TextBoxFor(model => model.TenKH, new { @class = "form-control", @id = "TenKH" })
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="DiaChi" class="form-label">Địa chỉ</label>
+                                        @Html.TextAreaFor(model => model.DiaChi, new { @class = "form-control", @id = "DiaChi", rows = 6 })
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="SDT" class="form-label">Số điện thoại</label>
+                                        @Html.TextBoxFor(model => model.SDT, new { @class = "form-control", @id = "SDT" })
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Email" class="form-label">Email</label>
+                                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @id = "Email" })
+                                    </div>
+                                    <div class="mb-3" style="display: flex; align-items: center;">
+                                        <label class="form-label" style="margin-bottom: 0px;">Giới tính:</label>
+                                        <div style="display: flex; justify-content: space-around; width: 20%;">
+                                            <div>
+                                                @Html.RadioButtonFor(model => model.GioiTinh, false, new { @id = "female" })
+                                                <label for="female" class="form-label" style="margin-bottom: 0px;">Nữ</label>
+                                            </div>
+                                            <div>
+                                                @Html.RadioButtonFor(model => model.GioiTinh, true, new { @id = "male" })
+                                                <label for="male" class="form-label" style="margin-bottom: 0px;">Nam</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="MatKhau" class="form-label">Mật khẩu</label>
+                                        @Html.PasswordFor(model => model.MatKhau, new { @class = "form-control", @id = "MatKhau" })
+                                    </div>
+                                    <input type="submit" value="Đăng ký" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" />
+                                }
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <p class="fs-4 mb-0 fw-bold">Already have an Account?</p>
+                                    <a class="text-primary fw-bold ms-2" href="@Url.Action("Login", "KhachHang")">Đăng nhập</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

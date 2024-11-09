@@ -1,0 +1,343 @@
+﻿@model IEnumerable<CNPM_QLQuanAo.Models.SANPHAM>
+@{
+    ViewBag.Title = "Shop";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<header class="header">
+    <div class="header__top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-7">
+                    <div class="header__top__left">
+                        <p>Free shipping, 30-day return or refund guarantee.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-5">
+                    <div class="header__top__right">
+                        @{
+                            if (@ViewBag.TenLogin_KH != null)
+                            {
+                                <div class="header__top__hover">
+                                    <span>
+                                        @ViewBag.TenLogin_KH
+                                        <i class="arrow_carrot-down"></i>
+                                    </span>
+                                    <ul>
+                                        <li>
+                                            @using (Html.BeginForm("Logout", "SanPhams", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                            {
+                                                <input type="submit" value="Đăng xuất" style="background: none; border: none" />
+                                            }
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("Edit", "UserKhachHang")" style="color: black">
+                                                Chỉnh sửa Thông tin người dùng
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            }
+                            else { }
+                        }
+
+                        <div class="header__top__hover">
+                            <span>Usd <i class="arrow_carrot-down"></i></span>
+                            <ul>
+                                <li>USD</li>
+                                <li>EUR</li>
+                                <li>USD</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3">
+                <div class="header__logo">
+                    <a href="@Url.Action("Index", "SanPhams")"><img src="~/Images/logo.png" alt=""></a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <nav class="header__menu mobile-menu">
+                    <ul>
+                        <li><a href="@Url.Action("Index", "SanPhams")">Home</a></li>
+                        <li class="active"><a href="@Url.Action("Shop", "SanPhams")">Shop</a></li>
+                        <li><a href="@Url.Action("AboutUs", "SanPhams")">About Us</a></li>
+                        <li><a href="@Url.Action("Blog", "SanPhams")">Blog</a></li>
+                        <li><a href="@Url.Action("Contact", "SanPhams")">Contacts</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-lg-3 col-md-3">
+                <div class="header__nav__option">
+                    @{
+                        if (@ViewBag.TenLogin_KH == null)
+                        {
+                            <a href="@Url.Action("Login", "KhachHang", new { area = "Admin" })"><i class="fa-regular fa-user" style="color: black"></i></a>
+                        }
+                    }
+                    <a href="#"><img src="~/Images/icon/heart.png" alt=""></a>
+                    @{
+                        if (@ViewBag.TenLogin_KH != null)
+                        {
+                            <a href="@Url.Action("Index", "UserChiTietHoaDons")"><img src="~/Images/icon/cart.png" alt=""> <span>0</span></a>
+                            <div class="price">$0.00</div>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Login", "KhachHang", new {area = "Admin"})"><img src="~/Images/icon/cart.png" alt=""> <span>0</span></a>
+                            <div class="price">$0.00</div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="canvas__open"><i class="fa fa-bars"></i></div>
+    </div>
+</header>
+
+<section class="shop spad" style="padding-top: 20px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="shop__sidebar">
+                    <div class="shop__sidebar__search">
+                        @using (Html.BeginForm("Shop", "SanPhams", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <input type="text" placeholder="Search..." name="TenSP">
+                            <button type="submit"><span class="icon_search"></span></button>
+                        }
+                    </div>
+                    <div class="shop__sidebar__accordion">
+                        <div class="accordion" id="accordionExample">
+                            <div class="card">
+                                <div class="card-heading">
+                                    <a data-toggle="collapse" data-target="#collapseOne">Categories</a>
+                                </div>
+                                <div id="collapseSix" class="collapse show" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__tags">
+                                            @foreach (var item in Model)
+                                            {
+                                                <a href="#">@item.LoaiSP.TenLoai</a>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-heading">
+                                    <a data-toggle="collapse" data-target="#collapseThree">Filter Price</a>
+                                </div>
+                                <div id="collapseThree" class="collapse show" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__price">
+                                            <ul>
+                                                <li>
+                                                    <a href="@Url.Action("ShowProductPrice", new {minPrice = 0, maxPrice = 100000})">0đ - 100.000đ</a>
+                                                </li>
+                                                <li>
+                                                    <a href="@Url.Action("ShowProductPrice", new {minPrice = 100000, maxPrice = 200000})">100.000đ - 200.000đ</a>
+                                                </li>
+                                                <li>
+                                                    <a href="@Url.Action("ShowProductPrice", new {minPrice = 200000, maxPrice = 300000})">200.000đ - 300.000đ</a>
+                                                </li>
+                                                <li>
+                                                    <a href="@Url.Action("ShowProductPrice", new {minPrice = 300000, maxPrice = 400000})">300.000đ - 400.000đ</a>
+                                                </li>
+                                                <li>
+                                                    <a href="@Url.Action("ShowProductPrice", new {minPrice = 400000, maxPrice = 500000})">400.000đ - 500.000đ</a>
+                                                </li>
+                                                <li>
+                                                    <a href="@Url.Action("ShowProductPrice", new {minPrice = 500000, maxPrice = int.MaxValue})">500.000đ trở lên</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-heading">
+                                    <a data-toggle="collapse" data-target="#collapseFour">Size</a>
+                                </div>
+                                <div id="collapseFour" class="collapse show" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__size">
+                                            <label for="xs">
+                                                <a href="@Url.Action("ShowProductSize", "SanPhams", new {size = "xs"})" style="color: black">
+                                                    XS
+                                                    <input type="radio" id="xs">
+                                                </a>
+                                            </label>
+                                            <label for="sm">
+                                                <a href="@Url.Action("ShowProductSize", "SanPhams", new {size = "s"})" style="color: black">
+                                                    S
+                                                    <input type="radio" id="s">
+                                                </a>
+                                            </label>
+                                            <label for="md">
+                                                <a href="@Url.Action("ShowProductSize", "SanPhams", new {size = "m"})" style="color: black">
+                                                    M
+                                                    <input type="radio" id="m">
+                                                </a>
+                                            </label>
+                                            <label for="xl">
+                                                <a href="@Url.Action("ShowProductSize", "SanPhams", new {size = "l"})" style="color: black">
+                                                    L
+                                                    <input type="radio" id="l">
+                                                </a>
+                                            </label>
+                                            <label for="2xl">
+                                                <a href="@Url.Action("ShowProductSize", "SanPhams", new {size = "xl"})" style="color: black">
+                                                    XL
+                                                    <input type="radio" id="xl">
+                                                </a>
+                                            </label>
+                                            <label for="xxl">
+                                                <a href="@Url.Action("ShowProductSize", "SanPhams", new {size = "xxl"})" style="color: black">
+                                                    XXL
+                                                    <input type="radio" id="xxl">
+                                                </a>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-heading">
+                                    <a data-toggle="collapse" data-target="#collapseFive">Colors</a>
+                                </div>
+                                <div id="collapseFive" class="collapse show" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__color">
+                                            <label class="c-1" for="sp-1">
+                                                <input type="radio" id="sp-1">
+                                            </label>
+                                            <label class="c-2" for="sp-2">
+                                                <input type="radio" id="sp-2">
+                                            </label>
+                                            <label class="c-3" for="sp-3">
+                                                <input type="radio" id="sp-3">
+                                            </label>
+                                            <label class="c-4" for="sp-4">
+                                                <input type="radio" id="sp-4">
+                                            </label>
+                                            <label class="c-5" for="sp-5">
+                                                <input type="radio" id="sp-5">
+                                            </label>
+                                            <label class="c-6" for="sp-6">
+                                                <input type="radio" id="sp-6">
+                                            </label>
+                                            <label class="c-7" for="sp-7">
+                                                <input type="radio" id="sp-7">
+                                            </label>
+                                            <label class="c-8" for="sp-8">
+                                                <input type="radio" id="sp-8">
+                                            </label>
+                                            <label class="c-9" for="sp-9">
+                                                <input type="radio" id="sp-9">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="shop__product__option">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="shop__product__option__left">
+                                @if (Model != null)
+                                {
+                                    <p>Showing 1–12 of @Model.Count() results</p>
+                                }
+                                else
+                                {
+                                    <p>No products found</p>
+                                }
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="shop__product__option__right">
+                                <p>Sort by Price:</p>
+                                <select>
+                                    <option value="">Low To High</option>
+                                    <option value="">$0 - $55</option>
+                                    <option value="">$55 - $100</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    @if (Model != null && Model.Any())
+                    {
+                        <div class="row">
+                            @foreach (var item in Model)
+                                {
+                                    if (item.TrangThai != false)
+                                    {
+                                    <div class="col-lg-4 col-md-6 col-sm-6">
+                                        <div class="product__item">
+                                            <div class="product__item__pic set-bg" data-setbg="/Images/product/@item.AnhSP">
+                                                <ul class="product__hover">
+                                                    <li><a href="#"><img src="~/Images/icon/heart.png" alt=""></a></li>
+                                                    <li>
+                                                        <a href="#"><img src="~/Images/icon/compare.png" alt=""> <span>Compare</span></a>
+                                                    </li>
+                                                    <li><a href="#"><img src="~/Images/icon/search.png" alt=""></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="product__item__text">
+                                                <h6>@item.TenSP</h6>
+                                                <a href="@Url.Action("Details", "SanPhams", new {id = item.MaSP})" class="add-cart">+ Add To Cart</a>
+                                                <h5 style="color: red">@item.Gia đ</h5>
+                                                <div class="product__color__select">
+                                                    <label for="pc-4">
+                                                        <input type="radio" id="pc-4">
+                                                    </label>
+                                                    <label class="active black" for="pc-5">
+                                                        <input type="radio" id="pc-5">
+                                                    </label>
+                                                    <label class="grey" for="pc-6">
+                                                        <input type="radio" id="pc-6">
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    }
+                                }
+                        </div>
+                        
+                    }
+                    else
+                    {
+                        <p style="text-align: center; ">Không có sản phẩm nào phù hợp với yêu cầu</p>
+                    }
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="product__pagination">
+                            <a class="active" href="#">1</a>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <span>...</span>
+                            <a href="#">21</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

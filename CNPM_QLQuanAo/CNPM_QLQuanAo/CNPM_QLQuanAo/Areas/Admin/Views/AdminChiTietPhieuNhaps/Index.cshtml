@@ -1,0 +1,201 @@
+﻿@model IEnumerable<CNPM_QLQuanAo.Models.ChiTietPhieuNhap>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var grid = new WebGrid(Model, canPage: true, defaultSort: "MaPhieu, MaSP", rowsPerPage: 5);
+}
+
+@section sidebar{
+    <ul id="sidebarnav">
+        <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu">SẢN PHẨM</span>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="@Url.Action("Index", "AdminSanPham")" aria-expanded="false">
+                <span>
+                    <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Danh sách sản phẩm</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="@Url.Action("Index", "AdminLoaiSPs")" aria-expanded="false">
+                <span>
+                    <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Danh sách loại sản phẩm</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link active" href="@Url.Action("Index", "AdminChiTietPhieuNhaps")" aria-expanded="false">
+                <span>
+                    <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Lịch sử nhập hàng</span>
+            </a>
+        </li>
+        <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu">kHÁCH HÀNG</span>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="@Url.Action("index", "KhachHang")" aria-expanded="false">
+                <span>
+                    <i class="ti ti-article"></i>
+                </span>
+                <span class="hide-menu">Danh sách khách hàng</span>
+            </a>
+        </li>
+        <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu">ĐƠN HÀNG</span>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="@Url.Action("Index", "ChiTietHoaDons")" aria-expanded="false">
+                <span>
+                    <i class="ti ti-article"></i>
+                </span>
+                <span class="hide-menu">Danh sách đơn hàng</span>
+            </a>
+        </li>
+        <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu">THỐNG KÊ</span>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="@Url.Action("ThongKeBanHang", "ThongKe")" aria-expanded="false">
+                <span>
+                    <i class="ti ti-cards"></i>
+                </span>
+                <span class="hide-menu">Thông kê</span>
+            </a>
+        </li>
+        <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu">NHÂN VIÊN</span>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="@Url.Action("Index", "AdminNHAN_VIEN")" aria-expanded="false">
+                <span>
+                    <i class="ti ti-file-description"></i>
+                </span>
+                <span class="hide-menu">Danh sách nhân viên</span>
+            </a>
+        </li>
+    </ul>
+}
+
+<style>
+
+    h3{
+        margin: 20px 0px;
+    }
+
+    .btn_create {
+        display: inline-block;
+        max-width: 200px;
+        background-color: lightskyblue;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+
+        .btn_create a {
+            color: #4e73df !important;
+            text-decoration: none;
+        }
+
+            .btn_create a:hover {
+                color: white !important;
+            }
+
+    a:hover, a {
+        text-decoration: none !important;
+    }
+
+    form {
+        display: flex !important;
+        align-items: center;
+    }
+
+    .btn-event {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 10px 0px 20px 0px;
+    }
+
+    .grid-footer {
+        color: #000;
+        font: 17px Calibri;
+        text-align: center;
+        font-weight: bold;
+    }
+
+        .grid-footer a {
+            background-color: #ffffff;
+            color: blue !important;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            padding: 1px 10px 2px 10px;
+        }
+
+            .grid-footer a:active, a:hover {
+                color: #FFAD33;
+            }
+
+    .alternatingRowStyle {
+        background-color: aliceblue;
+    }
+
+    table .table1 {
+        text-align: left;
+        margin-left: 0px;
+        margin-right: 0px;
+        width: 800px;
+    }
+
+    table td {
+        text-align: center;
+    }
+
+    th a {
+        color: dodgerblue !important;
+    }
+
+    th {
+        text-align: center;
+    }
+
+    .gridContent abbr[data-original-title], abbr[title] {
+        cursor: pointer !important;
+    }
+</style>
+
+<h3 style="text-align: center; font-weight: normal;">LỊCH SỬ NHẬP HÀNG</h3>
+
+<div id="gridContent">
+        @ViewBag.TB
+        @grid.GetHtml(
+            tableStyle: "table table-bordered table-hover",
+            footerStyle: "grid-footer",
+            fillEmptyRows: true,
+            mode: WebGridPagerModes.Numeric,
+            alternatingRowStyle: "alternatingRowStyle",
+              columns: new[]  // colums in grid
+             {
+        grid.Column("MaPhieu","Mã Phiếu"),
+        grid.Column("PhieuNhap.NHAN_VIEN.TenNV", "Người nhập"),
+        grid.Column("PhieuNhap.NgayNhap", "Ngày Tạo"),
+        grid.Column("SANPHAM.TenSP","Tên sản phẩm"),
+        grid.Column("SoLuong","Số Lượng"),
+        grid.Column(header: "Thành tiền", format: item => item.GiaGoc * item.SoLuong),
+        grid.Column("Chức năng", format: @<Text>
+    <a href="@Url.Action("Details",new {MaPhieu = item.MaPhieu, MaSP = item.MaSP})" class="btn btn-danger">
+        Xem chi tiết
+    </a>
+        </Text>)
+
+    }
+    )
+</div>

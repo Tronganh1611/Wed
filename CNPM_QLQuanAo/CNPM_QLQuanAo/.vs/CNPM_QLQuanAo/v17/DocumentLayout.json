@@ -1,0 +1,165 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\DFD\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EC856333-1E69-4E74-B37E-EC6F5AC88F2A}|CNPM_QLQuanAo\\CNPM_QLQuanAo.csproj|d:\\dfd\\cnpm_qlquanao\\cnpm_qlquanao\\cnpm_qlquanao\\areas\\admin\\views\\adminnhan_vien\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EC856333-1E69-4E74-B37E-EC6F5AC88F2A}|CNPM_QLQuanAo\\CNPM_QLQuanAo.csproj|solutionrelative:cnpm_qlquanao\\areas\\admin\\views\\adminnhan_vien\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC856333-1E69-4E74-B37E-EC6F5AC88F2A}|CNPM_QLQuanAo\\CNPM_QLQuanAo.csproj|D:\\DFD\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\cnpm_qlquanao\\areas\\admin\\views\\adminnhan_vien\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EC856333-1E69-4E74-B37E-EC6F5AC88F2A}|CNPM_QLQuanAo\\CNPM_QLQuanAo.csproj|solutionrelative:cnpm_qlquanao\\areas\\admin\\views\\adminnhan_vien\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC856333-1E69-4E74-B37E-EC6F5AC88F2A}|CNPM_QLQuanAo\\CNPM_QLQuanAo.csproj|D:\\DFD\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\cnpm_qlquanao\\areas\\admin\\views\\adminnhan_vien\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EC856333-1E69-4E74-B37E-EC6F5AC88F2A}|CNPM_QLQuanAo\\CNPM_QLQuanAo.csproj|solutionrelative:cnpm_qlquanao\\areas\\admin\\views\\adminnhan_vien\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC856333-1E69-4E74-B37E-EC6F5AC88F2A}|CNPM_QLQuanAo\\CNPM_QLQuanAo.csproj|D:\\DFD\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\cnpm_qlquanao\\areas\\admin\\views\\adminnhan_vien\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EC856333-1E69-4E74-B37E-EC6F5AC88F2A}|CNPM_QLQuanAo\\CNPM_QLQuanAo.csproj|solutionrelative:cnpm_qlquanao\\areas\\admin\\views\\adminnhan_vien\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC856333-1E69-4E74-B37E-EC6F5AC88F2A}|CNPM_QLQuanAo\\CNPM_QLQuanAo.csproj|D:\\DFD\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\cnpm_qlquanao\\areas\\admin\\views\\adminnhan_vien\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EC856333-1E69-4E74-B37E-EC6F5AC88F2A}|CNPM_QLQuanAo\\CNPM_QLQuanAo.csproj|solutionrelative:cnpm_qlquanao\\areas\\admin\\views\\adminnhan_vien\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC856333-1E69-4E74-B37E-EC6F5AC88F2A}|CNPM_QLQuanAo\\CNPM_QLQuanAo.csproj|D:\\DFD\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\cnpm_qlquanao\\areas\\admin\\controllers\\adminnhan_viencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC856333-1E69-4E74-B37E-EC6F5AC88F2A}|CNPM_QLQuanAo\\CNPM_QLQuanAo.csproj|solutionrelative:cnpm_qlquanao\\areas\\admin\\controllers\\adminnhan_viencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC856333-1E69-4E74-B37E-EC6F5AC88F2A}|CNPM_QLQuanAo\\CNPM_QLQuanAo.csproj|D:\\DFD\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\cnpm_qlquanao\\areas\\admin\\controllers\\adminloaispscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC856333-1E69-4E74-B37E-EC6F5AC88F2A}|CNPM_QLQuanAo\\CNPM_QLQuanAo.csproj|solutionrelative:cnpm_qlquanao\\areas\\admin\\controllers\\adminloaispscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC856333-1E69-4E74-B37E-EC6F5AC88F2A}|CNPM_QLQuanAo\\CNPM_QLQuanAo.csproj|D:\\DFD\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\cnpm_qlquanao\\areas\\admin\\controllers\\thongkecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC856333-1E69-4E74-B37E-EC6F5AC88F2A}|CNPM_QLQuanAo\\CNPM_QLQuanAo.csproj|solutionrelative:cnpm_qlquanao\\areas\\admin\\controllers\\thongkecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC856333-1E69-4E74-B37E-EC6F5AC88F2A}|CNPM_QLQuanAo\\CNPM_QLQuanAo.csproj|D:\\DFD\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\cnpm_qlquanao\\areas\\admin\\controllers\\adminsanphamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC856333-1E69-4E74-B37E-EC6F5AC88F2A}|CNPM_QLQuanAo\\CNPM_QLQuanAo.csproj|solutionrelative:cnpm_qlquanao\\areas\\admin\\controllers\\adminsanphamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\DFD\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\Areas\\Admin\\Views\\AdminNHAN_VIEN\\Edit.cshtml",
+              "RelativeDocumentMoniker": "CNPM_QLQuanAo\\Areas\\Admin\\Views\\AdminNHAN_VIEN\\Edit.cshtml",
+              "ToolTip": "D:\\DFD\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\Areas\\Admin\\Views\\AdminNHAN_VIEN\\Edit.cshtml",
+              "RelativeToolTip": "CNPM_QLQuanAo\\Areas\\Admin\\Views\\AdminNHAN_VIEN\\Edit.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-29T12:17:48.984Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\DFD\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\Areas\\Admin\\Views\\AdminNHAN_VIEN\\Details.cshtml",
+              "RelativeDocumentMoniker": "CNPM_QLQuanAo\\Areas\\Admin\\Views\\AdminNHAN_VIEN\\Details.cshtml",
+              "ToolTip": "D:\\DFD\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\Areas\\Admin\\Views\\AdminNHAN_VIEN\\Details.cshtml",
+              "RelativeToolTip": "CNPM_QLQuanAo\\Areas\\Admin\\Views\\AdminNHAN_VIEN\\Details.cshtml",
+              "ViewState": "AQIAADwAAAAAAAAAAAAAAFQAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-29T12:17:41.654Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "D:\\DFD\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\Areas\\Admin\\Views\\AdminNHAN_VIEN\\Delete.cshtml",
+              "RelativeDocumentMoniker": "CNPM_QLQuanAo\\Areas\\Admin\\Views\\AdminNHAN_VIEN\\Delete.cshtml",
+              "ToolTip": "D:\\DFD\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\Areas\\Admin\\Views\\AdminNHAN_VIEN\\Delete.cshtml",
+              "RelativeToolTip": "CNPM_QLQuanAo\\Areas\\Admin\\Views\\AdminNHAN_VIEN\\Delete.cshtml",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAuwBUAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-29T12:16:39.208Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\DFD\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\Areas\\Admin\\Views\\AdminNHAN_VIEN\\Create.cshtml",
+              "RelativeDocumentMoniker": "CNPM_QLQuanAo\\Areas\\Admin\\Views\\AdminNHAN_VIEN\\Create.cshtml",
+              "ToolTip": "D:\\DFD\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\Areas\\Admin\\Views\\AdminNHAN_VIEN\\Create.cshtml",
+              "RelativeToolTip": "CNPM_QLQuanAo\\Areas\\Admin\\Views\\AdminNHAN_VIEN\\Create.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-29T12:14:28.04Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AdminLoaiSPsController.cs",
+              "DocumentMoniker": "D:\\DFD\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\Areas\\Admin\\Controllers\\AdminLoaiSPsController.cs",
+              "RelativeDocumentMoniker": "CNPM_QLQuanAo\\Areas\\Admin\\Controllers\\AdminLoaiSPsController.cs",
+              "ToolTip": "D:\\DFD\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\Areas\\Admin\\Controllers\\AdminLoaiSPsController.cs",
+              "RelativeToolTip": "CNPM_QLQuanAo\\Areas\\Admin\\Controllers\\AdminLoaiSPsController.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAAwCQAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T12:13:17.641Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AdminNHAN_VIENController.cs",
+              "DocumentMoniker": "D:\\DFD\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\Areas\\Admin\\Controllers\\AdminNHAN_VIENController.cs",
+              "RelativeDocumentMoniker": "CNPM_QLQuanAo\\Areas\\Admin\\Controllers\\AdminNHAN_VIENController.cs",
+              "ToolTip": "D:\\DFD\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\Areas\\Admin\\Controllers\\AdminNHAN_VIENController.cs",
+              "RelativeToolTip": "CNPM_QLQuanAo\\Areas\\Admin\\Controllers\\AdminNHAN_VIENController.cs",
+              "ViewState": "AQIAAFMAAAAAAAAAAAAswHUAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T12:13:10.78Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\DFD\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\Areas\\Admin\\Views\\AdminNHAN_VIEN\\Index.cshtml",
+              "RelativeDocumentMoniker": "CNPM_QLQuanAo\\Areas\\Admin\\Views\\AdminNHAN_VIEN\\Index.cshtml",
+              "ToolTip": "D:\\DFD\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\Areas\\Admin\\Views\\AdminNHAN_VIEN\\Index.cshtml",
+              "RelativeToolTip": "CNPM_QLQuanAo\\Areas\\Admin\\Views\\AdminNHAN_VIEN\\Index.cshtml",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABUAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-29T12:13:04.267Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ThongkeController.cs",
+              "DocumentMoniker": "D:\\DFD\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\Areas\\Admin\\Controllers\\ThongkeController.cs",
+              "RelativeDocumentMoniker": "CNPM_QLQuanAo\\Areas\\Admin\\Controllers\\ThongkeController.cs",
+              "ToolTip": "D:\\DFD\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\Areas\\Admin\\Controllers\\ThongkeController.cs",
+              "RelativeToolTip": "CNPM_QLQuanAo\\Areas\\Admin\\Controllers\\ThongkeController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAABEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T10:55:57.917Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AdminSanPhamController.cs",
+              "DocumentMoniker": "D:\\DFD\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\Areas\\Admin\\Controllers\\AdminSanPhamController.cs",
+              "RelativeDocumentMoniker": "CNPM_QLQuanAo\\Areas\\Admin\\Controllers\\AdminSanPhamController.cs",
+              "ToolTip": "D:\\DFD\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\CNPM_QLQuanAo\\Areas\\Admin\\Controllers\\AdminSanPhamController.cs",
+              "RelativeToolTip": "CNPM_QLQuanAo\\Areas\\Admin\\Controllers\\AdminSanPhamController.cs",
+              "ViewState": "AQIAAGIAAAAAAAAAAAAswHkAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T10:55:50.595Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

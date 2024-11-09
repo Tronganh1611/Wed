@@ -1,0 +1,147 @@
+﻿@model CNPM_QLQuanAo.Models.SANPHAM
+@{
+    ViewBag.Title = "CapNhat";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section sidebar{
+    <ul id="sidebarnav">
+        <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu">SẢN PHẨM</span>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link active" href="@Url.Action("Index", "AdminSanPham")" aria-expanded="false">
+                <span>
+                    <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Danh sách sản phẩm</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="@Url.Action("Index", "AdminLoaiSPs")" aria-expanded="false">
+                <span>
+                    <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Danh sách loại sản phẩm</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="@Url.Action("Index", "AdminChiTietPhieuNhaps")" aria-expanded="false">
+                <span>
+                    <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Lịch sử nhập hàng</span>
+            </a>
+        </li>
+        <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu">kHÁCH HÀNG</span>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="@Url.Action("index", "KhachHang")" aria-expanded="false">
+                <span>
+                    <i class="ti ti-article"></i>
+                </span>
+                <span class="hide-menu">Danh sách khách hàng</span>
+            </a>
+        </li>
+        <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu">ĐƠN HÀNG</span>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="@Url.Action("Index", "ChiTietHoaDons")" aria-expanded="false">
+                <span>
+                    <i class="ti ti-article"></i>
+                </span>
+                <span class="hide-menu">Danh sách đơn hàng</span>
+            </a>
+        </li>
+        <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu">THỐNG KÊ</span>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="@Url.Action("ThongKeBanHang", "ThongKe")" aria-expanded="false">
+                <span>
+                    <i class="ti ti-cards"></i>
+                </span>
+                <span class="hide-menu">Thống kê</span>
+            </a>
+        </li>
+        <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu">NHÂN VIÊN</span>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="@Url.Action("Index", "AdminNHAN_VIEN")" aria-expanded="false">
+                <span>
+                    <i class="ti ti-file-description"></i>
+                </span>
+                <span class="hide-menu">Danh sách nhân viên</span>
+            </a>
+        </li>
+    </ul>
+}
+
+<head>
+    <style>
+        .control-label {
+            text-align: center;
+        }
+
+        textarea {
+            width: 100%;
+            max-height: 500px;
+        }
+
+        .btn-event a {
+            color: white;
+            padding: 6px 12px;
+            margin: 0px 10px;
+            background-color: #4e73df;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<h3 style="text-align: center">CẬP NHẬT SỐ LƯỢNG SẢN PHẨM</h3>
+<hr />
+<div>
+    @using (Html.BeginForm("CapNhat", "AdminSanPham", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group d-sm-block d-md-flex">
+                @Html.LabelFor(model => model.MaSP, "Tên sản phẩm: ", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.MaSP, ViewBag.MaSP as SelectList, new { @class = "form-control", required = "required" })
+                    @Html.ValidationMessageFor(model => model.MaSP, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group d-sm-block d-md-flex">
+                @Html.LabelFor(model => model.SoLuong, "Số lượng thêm vào: ", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SoLuong, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                    @Html.ValidationMessageFor(model => model.SoLuong, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group d-sm-block d-md-flex" style="justify-content: center; align-items: center">
+                <div class="col-md-offset-2" style="margin-right: 10px">
+                    <input type="submit" value="Thêm" class="btn btn-default btn-primary" style="width: 100px" />
+                </div>
+                <div class="col-md-offset-2">
+                    <a href="@Url.Action("index")" class="btn btn-primary" style="Width: 100px; font-weight: normal">Quay Lại</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

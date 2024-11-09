@@ -1,0 +1,141 @@
+﻿@model CNPM_QLQuanAo.Models.NHAN_VIEN
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    String gioitinh = "";
+    String chucvu = "";
+}
+
+@section sidebar{
+    <ul id="sidebarnav">
+        <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu">SẢN PHẨM</span>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link " href="@Url.Action("Index", "AdminSanPham")" aria-expanded="false">
+                <span>
+                    <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Danh sách sản phẩm</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="@Url.Action("Index", "AdminLoaiSPs")" aria-expanded="false">
+                <span>
+                    <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Danh sách loại sản phẩm</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="@Url.Action("Index", "AdminChiTietPhieuNhaps")" aria-expanded="false">
+                <span>
+                    <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Lịch sử nhập hàng</span>
+            </a>
+        </li>
+        <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu">kHÁCH HÀNG</span>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="@Url.Action("index", "KhachHang")" aria-expanded="false">
+                <span>
+                    <i class="ti ti-article"></i>
+                </span>
+                <span class="hide-menu">Danh sách khách hàng</span>
+            </a>
+        </li>
+        <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu">ĐƠN HÀNG</span>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="@Url.Action("Index", "ChiTietHoaDons")" aria-expanded="false">
+                <span>
+                    <i class="ti ti-article"></i>
+                </span>
+                <span class="hide-menu">Danh sách đơn hàng</span>
+            </a>
+        </li>
+        <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu">THỐNG KÊ</span>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="@Url.Action("ThongKeBanHang", "ThongKe")" aria-expanded="false">
+                <span>
+                    <i class="ti ti-cards"></i>
+                </span>
+                <span class="hide-menu">Thống kê</span>
+            </a>
+        </li>
+        <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu">NHÂN VIÊN</span>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link active " href="@Url.Action("Index", "AdminNHAN_VIEN")" aria-expanded="false">
+                <span>
+                    <i class="ti ti-file-description"></i>
+                </span>
+                <span class="hide-menu">Danh sách nhân viên</span>
+            </a>
+        </li>
+    </ul>
+}
+
+<style>
+    p a {
+        color: white;
+        padding: 6px 12px;
+        margin: 0px 5px;
+        background-color: #4e73df;
+    }
+</style>
+
+<h4 style="text-align: center">THÔNG TIN CHI TIẾT NHÂN VIÊN</h4>
+<hr />
+
+<div style="font-size:18px; align-items: center" class="d-sm-block d-md-flex">
+    <div class="col-7 " style="color: black; font-size: 16px; line-height: 30px;">
+        <div style="display: flex; justify-content: space-between; width: 100%;">
+            <div>
+                <p>Mã nhân viên: @Html.DisplayFor(model => model.MaNV)</p>
+                <p>Tên nhân viên: @Html.DisplayFor(model => model.TenNV)</p>
+                <p>Ngày sinh: @Html.DisplayFor(model => model.NgaySinh)</p>
+                <p>
+                    Giới tính: @{
+                        if (Model.GioiTinh == true)
+                        { gioitinh = "Nam"; }
+                        else
+                        { gioitinh = "Nữ"; }
+                    }
+                    @gioitinh
+                </p>
+                <p>CMND: @Html.DisplayFor(model => model.CMND)</p>
+            </div>
+            <div>
+                <p>Địa chỉ: @Html.DisplayFor(model => model.DiaChi)</p>
+                <p>
+                    Chức vụ: @{
+                        if (Model.ChucVu == true)
+                        { chucvu = "Quản lí"; }
+                        else
+                        { chucvu = "Nhân viên"; }
+                    }
+                    @chucvu
+                </p>
+                <p>Email: @Html.DisplayFor(model => model.Email)</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="form-group d-sm-block d-md-flex" style="justify-content: center; align-items: center">
+    <div class="col-md-offset-2">
+        <a href="@Url.Action("Index", "AdminNHAN_VIEN")" class="btn btn-primary" style="Width: 100px; font-weight: normal">Quay Lại</a>
+    </div>
+</div>

@@ -1,0 +1,203 @@
+﻿@model IEnumerable<CNPM_QLQuanAo.Models.ChiTietHoaDon>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+    DateTime date;
+    int totalAmount;
+    decimal allTotalAmount = Model.Sum(s => (s.SANPHAM != null && s.SoLuong.HasValue && s.SANPHAM.Gia.HasValue)
+                                            ? s.SoLuong.Value * s.SANPHAM.Gia.Value
+                                            : 0);
+    <style>
+        table tr th{
+            border: none !important;
+        }
+        .content-right .content-right-title{
+            padding: 10px 0px;
+            border-bottom: 1px solid black;
+        }
+        .content-right div{
+            margin-top: 10px;
+            padding: 0px 20px;
+        }
+        .content-right div:last-child{
+            border-bottom: none;
+        }
+    </style>
+}
+
+<header class="header">
+    <div class="header__top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-7">
+                    <div class="header__top__left">
+                        <p>Free shipping, 30-day return or refund guarantee.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-5">
+                    <div class="header__top__right">
+                        @{
+                            if (@ViewBag.TenLogin_KH != null)
+                            {
+                                <div class="header__top__hover">
+                                    <span>
+                                        @ViewBag.TenLogin_KH
+                                        <i class="arrow_carrot-down"></i>
+                                    </span>
+                                    <ul>
+                                        <li>
+                                            @using (Html.BeginForm("Logout", "SanPhams", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                            {
+                                                <input type="submit" value="Đăng xuất" style="background: none; border: none" />
+                                            }
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("Edit", "UserKhachHang")" style="color: black">
+                                                Chỉnh sửa Thông tin người dùng
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            }
+                            else { }
+                        }
+                        <div class="header__top__hover">
+                            <span>Usd <i class="arrow_carrot-down"></i></span>
+                            <ul>
+                                <li>USD</li>
+                                <li>EUR</li>
+                                <li>USD</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3">
+                <div class="header__logo">
+                    <a href="@Url.Action("Index", "SanPhams")"><img src="~/Images/logo.png" alt=""></a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <nav class="header__menu mobile-menu">
+                    <ul>
+                        <li class="active"><a href="@Url.Action("Index", "SanPhams")">Home</a></li>
+                        <li><a href="@Url.Action("Shop", "SanPhams")">Shop</a></li>
+                        <li><a href="@Url.Action("AboutUs", "SanPhams")">About Us</a></li>
+                        <li><a href="@Url.Action("Blog", "SanPhams")">Blog</a></li>
+                        <li><a href="@Url.Action("Contact", "SanPhams")">Contacts</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-lg-3 col-md-3">
+                <div class="header__nav__option">
+                    @{
+                        if (@ViewBag.TenLogin_KH == null)
+                        {
+                            <a href="@Url.Action("Login", "KhachHang", new {area = "Admin"})"><i class="fa-regular fa-user" style="color: black"></i></a>
+                        }
+                    }
+                    <a href="#"><img src="~/Images/icon/heart.png" alt=""></a>
+                    @{
+                        if (@ViewBag.TenLogin_KH != null)
+                        {
+                            <a href="@Url.Action("Index", "UserChiTietHoaDons")"><img src="~/Images/icon/cart.png" alt=""> <span>0</span></a>
+                            <div class="price">$0.00</div>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Login", "KhachHang", new {area = "Admin"})"><img src="~/Images/icon/cart.png" alt=""> <span>0</span></a>
+                            <div class="price">$0.00</div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="canvas__open"><i class="fa fa-bars"></i></div>
+    </div>
+</header>
+
+<div class="container" style="padding: 30px 0px;">
+    <h2>Giỏ hàng</h2>
+    <div style="display: flex; justify-content: space-between; align-items: start">
+        <div class="content-left" style="width: 60%">
+            <section>
+                @{
+                    if (Model != null && Model.Any())
+                    {
+                        <div>
+                            <table class="table text-center">
+                                <thead>
+                                    <tr>
+                                        <th>sản phẩm</th>
+                                        <th>Số lượng</th>
+                                        <th>Giá</th>
+                                        <th>Thành tiền</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        date = DateTime.Parse(item.HOA_DON.NgayDat);
+                                        totalAmount = (item.SoLuong ?? 0) * (item.SANPHAM.Gia ?? 0);
+                                        <tr>
+                                            <td style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                                                <img src="~/Images/product/@item.SANPHAM.AnhSP" width="150" />
+                                                <div>
+                                                    <p>@item.SANPHAM.TenSP</p>
+                                                    <p>Kích cỡ: @item.SANPHAM.Size</p>
+                                                    <p>Màu: @item.SANPHAM.Mau</p>
+                                                </div>
+                                            </td>
+                                            <td>@item.SoLuong</td>
+                                            <td>@item.SANPHAM.Gia đ</td>
+                                            <td>@totalAmount đ</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <p>Không có sản phẩm nào cả</p>
+                    }
+                }
+                <div class="form-group d-sm-block d-md-flex" style="justify-content: center; align-items: center">
+                    <div class="col-md-offset-2" style="margin-right: 10px;">
+                        @using (Html.BeginForm("Pay", "UserChiTietHoaDons", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.Hidden("TenLogin_KH", ViewBag.TenLogin_KH as string)
+                            <input type="submit" value="Thanh toán" class="btn btn-default btn-primary" style="width: 120px" />
+                        }
+                    </div>
+                    <div class="col-md-offset-2">
+                        <a href="@Url.Action("index", "SanPhams")" class="btn btn-primary" style="Width: 100px; font-weight: normal">Quay Lại</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="content-right" style="width: 30%; background-color: antiquewhite; padding: 10px">
+            <p class="text-center content-right-title">Tổng đơn hàng</p>
+            <div style="display: flex; justify-content: space-between; align-items: center">
+                <p>Thành tiền: </p>
+                <p>@allTotalAmount đ</p>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center">
+                <p>Giảm giá: </p>
+                <p>0 đ</p>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center">
+                <p>Tổng Thành tiền: </p>
+                <p>@allTotalAmount đ</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+

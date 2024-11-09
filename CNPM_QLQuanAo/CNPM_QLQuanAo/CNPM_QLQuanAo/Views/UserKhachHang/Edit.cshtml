@@ -1,0 +1,194 @@
+﻿@model CNPM_QLQuanAo.Models.KHACH_HANG
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+    <style>
+        textarea {
+            width: 100%;
+            max-height: 500px;
+        }
+
+        .btn-event a {
+            color: white;
+            padding: 6px 12px;
+            margin: 0px 10px;
+            background-color: #4e73df;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            align-items: center;
+        }
+    </style>
+}
+
+<header class="header">
+    <div class="header__top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-7">
+                    <div class="header__top__left">
+                        <p>Free shipping, 30-day return or refund guarantee.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-5">
+                    <div class="header__top__right">
+                        @{
+                            if (@ViewBag.TenLogin_KH != null)
+                            {
+                                <div class="header__top__hover">
+                                    <span>
+                                        @ViewBag.TenLogin_KH
+                                        <i class="arrow_carrot-down"></i>
+                                    </span>
+                                    <ul>
+                                        <li>
+                                            @using (Html.BeginForm("Logout", "SanPhams", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                            {
+                                                <input type="submit" value="Đăng xuất" style="background: none; border: none" />
+                                            }
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("Edit", "UserKhachHang")" style="color: black">
+                                                Chỉnh sửa Thông tin người dùng
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            }
+                            else { }
+                        }
+                        <div class="header__top__hover">
+                            <span>Usd <i class="arrow_carrot-down"></i></span>
+                            <ul>
+                                <li>USD</li>
+                                <li>EUR</li>
+                                <li>USD</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3">
+                <div class="header__logo">
+                    <a href="@Url.Action("Index", "SanPhams")"><img src="~/Images/logo.png" alt=""></a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <nav class="header__menu mobile-menu">
+                    <ul>
+                        <li class="active"><a href="@Url.Action("Index", "SanPhams")">Home</a></li>
+                        <li><a href="@Url.Action("Shop", "SanPhams")">Shop</a></li>
+                        <li><a href="@Url.Action("AboutUs", "SanPhams")">About Us</a></li>
+                        <li><a href="@Url.Action("Blog", "SanPhams")">Blog</a></li>
+                        <li><a href="@Url.Action("Contact", "SanPhams")">Contacts</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-lg-3 col-md-3">
+                <div class="header__nav__option">
+                    @{
+                        if (@ViewBag.TenLogin_KH == null)
+                        {
+                            <a href="@Url.Action("Login", "KhachHang", new {area = "Admin"})"><i class="fa-regular fa-user" style="color: black"></i></a>
+                        }
+                    }
+                    <a href="#"><img src="~/Images/icon/heart.png" alt=""></a>
+                    @{
+                        if (@ViewBag.TenLogin_KH != null)
+                        {
+                            <a href="@Url.Action("Index", "UserChiTietHoaDons")"><img src="~/Images/icon/cart.png" alt=""> <span>0</span></a>
+                            <div class="price">$0.00</div>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Login", "KhachHang", new {area = "Admin"})"><img src="~/Images/icon/cart.png" alt=""> <span>0</span></a>
+                            <div class="price">$0.00</div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="canvas__open"><i class="fa fa-bars"></i></div>
+    </div>
+</header>
+
+<section style="background-color: #f3f2ee; padding: 10px">
+    <h3 class="text-center" style="margin: 20px 0px;">Thông tin của người dùng</h3>
+    <div style="width: 80%; padding: 10px; margin: 0px auto">
+        @using (Html.BeginForm("Edit", "UserKhachHang", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.MaKH)
+
+            <div class="form-group d-sm-block d-md-flex">
+                @Html.LabelFor(model => model.TenKH, "Tên người dùng: ", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TenKH, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TenKH, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group d-sm-block d-md-flex">
+                @Html.LabelFor(model => model.SDT, "Số điện thoại: ", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group d-sm-block d-md-flex">
+                @Html.LabelFor(model => model.Email, "Email: ", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group d-sm-block d-md-flex">
+                @Html.LabelFor(model => model.MatKhau, "Mật khẩu: ", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.MatKhau, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group1 d-sm-block d-md-flex">
+                @Html.LabelFor(model => model.GioiTinh, "Giới tính", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        Nam @Html.RadioButtonFor(model => model.GioiTinh, "True", new { @checked = "checked" }) &nbsp;
+                        Nữ @Html.RadioButtonFor(model => model.GioiTinh, "False")
+                        @Html.ValidationMessageFor(model => model.GioiTinh, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group d-sm-block d-md-flex">
+                @Html.LabelFor(model => model.DiaChi, "Địa chỉ: ", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.DiaChi, new { htmlAttributes = new { @class = "form-control" }, rows = "6" })
+                    @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group d-sm-block d-md-flex" style="justify-content: center; align-items: center">
+                <div class="col-md-offset-2" style="margin-right: 10px">
+                    <input type="submit" value="Lưu" class="btn btn-default btn-primary" style="width: 100px" />
+                </div>
+                <div class="col-md-offset-2">
+                    <a href="@Url.Action("index", "SanPhams")" class="btn btn-primary" style="Width: 100px; font-weight: normal">Quay Lại</a>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</section>
